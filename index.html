@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPMB Cendekia Muslim Islamic School - Pendaftaran Santri Baru 2026/2027</title>
+    <meta name="description" content="Pendaftaran Santri Baru Cendekia Muslim Islamic School untuk TK, SD, SMP, PKBM, dan LPQ Tahun Ajaran 2026/2027">
+    <meta name="keywords" content="pendaftaran, santri, cendekia muslim, islamic school, TK, SD, SMP, PKBM, LPQ">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- CSS Framework -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #28a745;
+            --secondary-green: #20c997;
+            --light-green: #d4edda;
+            --orange: #fd7e14;
+            --blue: #007bff;
+            --dark: #343a40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--light-green) !important;
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            padding: 100px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/hero-pattern.png') repeat;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-custom {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn-primary-custom {
+            background: var(--orange);
+            color: white;
+            border: 2px solid var(--orange);
+        }
+
+        .btn-primary-custom:hover {
+            background: transparent;
+            color: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(253, 126, 20, 0.3);
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary-custom:hover {
+            background: white;
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-green);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .education-levels {
+            background: #f8f9fa;
+        }
+
+        .level-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .level-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary-green);
+        }
+
+        .level-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .price-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .price-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .price-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .price-details li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-details li:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--primary-green);
+            border-top: 2px solid var(--primary-green);
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+
+        .contact-section {
+            background: var(--dark);
+            color: white;
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--secondary-green);
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-green);
+            transform: translateY(-3px);
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .badge-discount {
+            background: var(--orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-graduation-cap me-2"></i>
+                Cendekia Muslim
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#jenjang">Jenjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#keunggulan">Keunggulan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#biaya">Biaya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light rounded-pill px-3" href="register.php">
+                            <i class="fas fa-user-plus me-1"></i>Daftar Sekarang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content" data-aos="fade-right">
+                    <h1 class="hero-title">PENDAFTARAN SANTRI BARU</h1>
+                    <p class="hero-subtitle">
+                        Tingkat TK - SD - SMP - PKBM - LPQ<br>
+                        <strong>TAHUN AJARAN 2026/2027</strong>
+                    </p>
+                    <p class="lead mb-4">
+                        "The Excellence Quranic Leader and Entrepreneur School"<br>
+                        Membentuk generasi cerdas, berakhlak mulia, dan berwirausaha
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="register.php" class="btn-custom btn-primary-custom">
+                            <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
+                        </a>
+                        <a href="#jenjang" class="btn-custom btn-secondary-custom">
+                            <i class="fas fa-info-circle me-2"></i>Lihat Info Lengkap
+                        </a>
+                        <a href="assets/brochures/brosur-spmb-2026.pdf" class="btn-custom btn-secondary-custom" target="_blank">
+                            <i class="fas fa-download me-2"></i>Download Brosur
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="text-center">
+                        <img src="assets/logos/ypcm-logo.png" alt="YPCM Logo" class="img-fluid mb-3" style="max-width: 300px;">
+                        <div class="badge-discount">
+                            <i class="fas fa-star me-1"></i>Early Bird Diskon 10%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Levels -->
+    <section id="jenjang" class="education-levels section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Jenjang Pendidikan</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="level-card">
+                        <div class="level-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h4 class="text-center mb-3">TK Akhlak Cendekia Muslim</h4>
+                        <p class="text-center text-muted">
+                            Taman Kanak-kanak dengan pendekatan Islami, membangun fondasi akhlak dan kreativitas anak usia dini.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Usia 4-6 tahun</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Tahfidz Qur'an</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Pembelajaran berbasis bermain</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Fasilitas lengkap dan aman</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="level-card">
+                        <div class="level-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h4 class="text-center mb-3">SD Akhlak Cendekia Muslim</h4>
+                        <p class="text-center text-muted">
+                            Sekolah Dasar yang mengintegrasikan kurikulum nasional dengan nilai-nilai Islam dalam pembelajaran.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Kelas 1-6</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Tahfidz 30 Juz</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Fullday School</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Smart School System</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="level-card">
+                        <div class="level-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="text-center mb-3">SMP Akhlak Cendekia Muslim</h4>
+                        <p class="text-center text-muted">
+                            Sekolah Menengah Pertama yang mempersiapkan siswa menjadi pemimpin masa depan yang berakhlak mulia.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Kelas 7-9</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Program Leadership</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Entrepreneur</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Ekstrakurikuler lengkap</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="level-card">
+                        <div class="level-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="text-center mb-3">PKBM Cendekia Muslim</h4>
+                        <p class="text-center text-muted">
+                            Pusat Kegiatan Belajar Masyarakat dengan program Paket A, B, dan C untuk pendidikan alternatif.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Paket A (Setara SD)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Paket B (Setara SMP)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Paket C (Setara SMA)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Waktu belajar fleksibel</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="level-card">
+                        <div class="level-icon">
+                            <i class="fas fa-quran"></i>
+                        </div>
+                        <h4 class="text-center mb-3">LPQ Cendekia Muslim</h4>
+                        <p class="text-center text-muted">
+                            Lembaga Pendidikan Al-Quran dengan program Tahsin dan Tahfidz berbasis alam.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Tahsin Al-Quran</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Tahfidz 30 Juz</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Pengajar Bersanad</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Pembelajaran berbasis alam</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section id="keunggulan" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Keunggulan Sekolah</h2>
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-quran"></i>
+                    </div>
+                    <h5>Tahfidz Qur'an 30 Juz dan Bersanad</h5>
+                    <p>Program tahfidz dengan metode terpadu dan pengajar yang bersanad sampai Rasulullah SAW.</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h5>Pendidikan Agama Intensif</h5>
+                    <p>Pembelajaran agama yang lebih banyak dengan mata pelajaran khusus seperti Siroh dan Adab Islami.</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h5>Smart School System</h5>
+                    <p>Sistem pembelajaran berbasis Mobile Apps dan Tes GWINFIL untuk monitoring perkembangan siswa.</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h5>Pembelajaran Berbasis Alam</h5>
+                    <p>Saung belajar dan pondok segitiga untuk tahfidz dengan suasana alam yang mendukung.</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h5>Kantin Sehat dan Halal</h5>
+                    <p>Kantin sekolah yang menyediakan makanan sehat, halal, dan aman untuk kesehatan siswa.</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h5>Ruangan Full AC</h5>
+                    <p>Seluruh ruangan belajar dilengkapi AC untuk kenyamanan optimal dalam belajar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biaya Pendaftaran -->
+    <section id="biaya" class="price-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Biaya Pendaftaran 2026/2027</h2>
+            <div class="row">
+                <!-- TK -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h4 class="price-title">TK Akhlak Cendekia Muslim</h4>
+                            <div class="price-amount">Rp 100.000</div>
+                            <small class="text-muted">Biaya Formulir Pendaftaran</small>
+                        </div>
+                        <ul class="price-details">
+                            <li><span>SPP Bulan Juli</span><span>Rp 175.000</span></li>
+                            <li><span>Infaq Pembangunan</span><span>Rp 650.000</span></li>
+                            <li><span>Kegiatan Per Semester</span><span>Rp 300.000</span></li>
+                            <li><span>Tes Gwinfill</span><span>Rp 350.000</span></li>
+                            <li><span>Buku Aktivitas</span><span>Rp 175.000</span></li>
+                            <li><span>Seragam Lengkap</span><span>Rp 550.000 - 650.000</span></li>
+                            <li><span><strong>Total Biaya Masuk</strong></span><span><strong>Rp 2.300.000 - 2.400.000</strong></span></li>
+                        </ul>
+                        <div class="text-center mt-3">
+                            <small class="text-success">*TK A mendapat potongan 50% Infaq Pembangunan</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SD -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h4 class="price-title">SD Akhlak Cendekia Muslim</h4>
+                            <div class="price-amount">Rp 150.000</div>
+                            <small class="text-muted">Biaya Formulir Pendaftaran</small>
+                        </div>
+                        <ul class="price-details">
+                            <li><span>SPP Bulan Juli</span><span>Rp 275.000</span></li>
+                            <li><span>Kegiatan Semester 1</span><span>Rp 500.000</span></li>
+                            <li><span>Buku & Map Raport</span><span>Rp 250.000</span></li>
+                            <li><span>Tes Gwinfill + Selempang</span><span>Rp 450.000</span></li>
+                            <li><span>Mobiler Sekolah</span><span>Rp 900.000</span></li>
+                            <li><span>Seragam Lengkap</span><span>Rp 800.000 - 950.000</span></li>
+                            <li><span>Camp Literasi & Tahfidz</span><span>Rp 200.000</span></li>
+                            <li><span>Uang Pembangunan</span><span>Rp 1.500.000</span></li>
+                            <li><span><strong>Total Biaya Masuk</strong></span><span><strong>Rp 4.875.000 - 5.025.000</strong></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SMP -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h4 class="price-title">SMP Akhlak Cendekia Muslim</h4>
+                            <div class="price-amount">Rp 200.000</div>
+                            <small class="text-muted">Biaya Formulir Pendaftaran</small>
+                        </div>
+                        <ul class="price-details">
+                            <li><span>SPP Bulan Juli</span><span>Rp 375.000</span></li>
+                            <li><span>Kegiatan Semester 1</span><span>Rp 700.000</span></li>
+                            <li><span>Buku & Map Raport</span><span>Rp 200.000</span></li>
+                            <li><span>Tes Gwinfill + Selempang</span><span>Rp 500.000</span></li>
+                            <li><span>Mobiler Sekolah</span><span>Rp 950.000</span></li>
+                            <li><span>Seragam Lengkap</span><span>Rp 1.000.000 - 1.150.000</span></li>
+                            <li><span>Camp Literasi & Tahfidz</span><span>Rp 250.000</span></li>
+                            <li><span>Uang Pembangunan</span><span>Rp 1.750.000</span></li>
+                            <li><span><strong>Total Biaya Masuk</strong></span><span><strong>Rp 5.725.000 - 5.875.000</strong></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PKBM -->
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h4 class="price-title">PKBM Cendekia Muslim</h4>
+                            <div class="price-amount">Rp 50.000 - 100.000</div>
+                            <small class="text-muted">Biaya Formulir (Non-Reguler/Reguler)</small>
+                        </div>
+                        <ul class="price-details">
+                            <li><span>Paket A (Setara SD)</span><span>Rp 50.000</span></li>
+                            <li><span>Paket B (Setara SMP)</span><span>Rp 50.000</span></li>
+                            <li><span>Paket C (Setara SMA)</span><span>Rp 50.000</span></li>
+                            <li><span>Kelas Reguler</span><span>Rp 100.000</span></li>
+                            <li><span>Waktu Fleksibel</span><span>Sabtu & Minggu</span></li>
+                            <li><span><strong>Total Biaya</strong></span><span><strong>Sesuai Program</strong></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- LPQ -->
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h4 class="price-title">LPQ Cendekia Muslim</h4>
+                            <div class="price-amount">GRATIS</div>
+                            <small class="text-muted">Biaya Formulir Pendaftaran</small>
+                        </div>
+                        <ul class="price-details">
+                            <li><span>Biaya Per Bulan</span><span>Rp 350.000</span></li>
+                            <li><span>Senin, Rabu, Jumat</span><span>14.30 - 16.00</span></li>
+                            <li><span>Selasa, Kamis, Sabtu</span><span>16.00 - 17.30</span></li>
+                            <li><span>Malam</span><span>18.30 - 20.00</span></li>
+                            <li><span>Maksimal 6 Siswa/Kelas</span><span>✓</span></li>
+                            <li><span><strong>Biaya Bulanan</strong></span><span><strong>Rp 350.000</strong></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diskon Information -->
+            <div class="row mt-5">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="alert alert-success">
+                        <h5><i class="fas fa-star me-2"></i>Promo dan Diskon Khusus:</h5>
+                        <ul class="mb-0">
+                            <li><strong>Early Bird (Gelombang 1):</strong> Diskon 10% Uang Pembangunan (September - Desember 2025)</li>
+                            <li><strong>Saudara Kandung:</strong> Potongan Rp 300.000 untuk anak tingkat bawah jika masuk bersamaan</li>
+                            <li><strong>Pembayaran Lunas:</strong> Potongan Rp 250.000 untuk SD & SMP (semua gelombang)</li>
+                            <li><strong>Alumni Internal:</strong> Potongan Rp 100.000 + gratis Tes Gwinfil</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Information -->
+            <div class="row mt-4">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="alert alert-info">
+                        <h5><i class="fas fa-university me-2"></i>Informasi Pembayaran:</h5>
+                        <p class="mb-2">Transfer ke rekening resmi:</p>
+                        <p class="mb-0">
+                            <strong>Bank Syariah Indonesia (BSI)</strong><br>
+                            <strong>No. Rekening: 7229105625</strong><br>
+                            <strong>Atas Nama: YYS Pendidikan Cendekia Muslim</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="contact-section section-padding">
+        <div class="container">
+            <h2 class="section-title text-white" data-aos="fade-up">Hubungi Kami</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Informasi Kontak</h4>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Alamat:</strong><br>
+                                Nagari Pematang Panjang, Kab. Sijunjung<br>
+                                Sumatera Barat, Indonesia
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Telepon/WhatsApp:</strong><br>
+                                0821-7772-9934
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@cendekiamuslim.or.id
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <strong>Website:</strong><br>
+                                www.cendekiamuslim.or.id
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Narahubung SPMB</h4>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>PKBM:</strong><br>
+                                Burhanuddin, S.Pd.Ing., M.M (0823-8698-6531)<br>
+                                Novita Jurniati, S.P., M.M (0821-7772-9934)<br>
+                                Adhan Chaniago, M.Pd., M.M (0822-6890-0329)
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Jam Pelayanan:</strong><br>
+                                Senin - Jumat: 08.00 - 16.00 WIB<br>
+                                Sabtu: 08.00 - 12.00 WIB
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Cendekia Muslim Islamic School. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/ypcendekiamuslim" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ypcendekiamuslim" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@cendekiamuslim" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://cendekiamuslim.or.id" target="_blank">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6282177729934?text=Assalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20pendaftaran%20santri%20baru%20Cendekia%20Muslim" 
+       class="floating-whatsapp" target="_blank" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(40, 167, 69, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--primary-green), var(--secondary-green))';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Loading screen (optional)
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
